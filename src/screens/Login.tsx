@@ -2,6 +2,8 @@ import { StyleSheet, TextInput, Text, TouchableOpacity } from "react-native";
 import React, { useContext, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { UserContext } from "../contexts/UserContext";
+import { Input, Block } from "galio-framework";
+import { Button } from "galio-framework";
 
 const Login = () => {
   const { login } = useContext(UserContext);
@@ -11,27 +13,33 @@ const Login = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>LOGIN</Text>
-      <TextInput
-        style={styles.input}
-        value={username}
+
+      <Input
+        placeholder="Username"
+        right
+        icon="user"
+        family="Feather"
+        iconSize={15}
+        iconColor="blue"
         onChangeText={setUsername}
-        autoCapitalize="none"
-        placeholder="Insira seu usuário"
-      />
-      <TextInput
-        style={styles.input}
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-        placeholder="Insira sua senha"
+        value={username}
       />
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => login(username, password)}
-      >
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
+      <Input
+        placeholder="Password"
+        password
+        viewPass
+        value={password}
+        onChangeText={setPassword}
+        iconColor="blue"
+      />
+
+      {/* mudar aqui */}
+      <Button
+        color="info"
+        onPress={() => login("yraigatt3", "sRQxjPfdS")}
+        style={styles.btn}
+      > LOGIN </Button>
     </SafeAreaView>
   );
 };
@@ -57,6 +65,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 12,
+  },
+  btn: {
+    width: "100%",
   },
   buttonText: {
     color: "#fff",

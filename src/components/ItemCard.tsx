@@ -20,8 +20,9 @@ const ItemCard = ({ product }: Props) => {
           />
         </View>
         <View style={styles.text}>
-          <Text style={{fontSize:20,fontWeight:"700",textTransform:'capitalize'}}>{product.title}</Text>
-          <Text style={{fontStyle:'italic',fontSize:15}}>$ {product.price} </Text>
+          <Text style={{fontSize:20,fontWeight:"500",textTransform:'capitalize'}}>{product.title}</Text>
+          <Text style={{fontStyle:'italic',fontSize:15,fontWeight:'bold'}}>$ {product.price} </Text>
+          <Text style={{fontStyle:'italic',fontSize:15}}>★{product.rating} </Text>
         </View>
       </View>
     </TouchableOpacity>

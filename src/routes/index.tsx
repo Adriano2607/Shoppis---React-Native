@@ -5,13 +5,13 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
 
 export const Routes = () => {
- // const { getToken, token } = useContext(UserContext);
+ const { getToken, token } = useContext(UserContext);
 
- // useEffect(() => {
-   // getToken();
- // }, []);
+ useEffect(() => {
+    getToken();
+  }, []);
 
- const token = `dadqeawd`
+
 
   return (
     <NavigationContainer>
