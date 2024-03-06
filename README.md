@@ -17,4 +17,37 @@ Este é um aplicativo simples de carrinho de compras desenvolvido em React Nativ
 1. **Clone o repositório:**
 - git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
+2. **Navegue até o diretório do projeto:**
+- cd nome-do-repositorio
+
+3. **Instale as dependências:**
+- npm install
+
+
+## Uso
+
+1. **Inicie o aplicativo:**
+- npm start
+
+
+2. O aplicativo será iniciado em seu emulador ou dispositivo móvel.
+
+## Tecnologias Utilizadas
+
+- React Native
+- AsyncStorage para armazenamento local
+- Context API para gerenciamento de estado
+- Galio Framework para componentes UI
+- React Navigation para navegação
+
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir um pull request ou reportar problemas.
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](https://opensource.org/licenses/MIT).
+
+
+
 
