@@ -1,14 +1,18 @@
-<h1>Carrinho de Compras</h1>
-<p>Este é um aplicativo simples de carrinho de compras desenvolvido em React Native.</p>
+# Carrinho de Compras
 
-<ul><strong>Funcionalidades</strong></ul>
-  <li>Adicionar produtos ao carrinho</li>
-    <li>Remover produtos do carrinho</li>
-    <li>Visualizar lista de produtos no carrinho</li>
- <li>Calcular o preço total dos produtos no carrinho</li>
- <li>Realizar pagamento</li>
+## Descrição
 
+Este é um aplicativo simples de carrinho de compras desenvolvido em React Native.
 
+## Funcionalidades
 
+- Adicionar produtos ao carrinho
+- Remover produtos do carrinho
+- Visualizar lista de produtos no carrinho
+- Calcular o preço total dos produtos no carrinho
+- Realizar pagamento
 
+## Instalação
+
+1. **Clone o repositório:**
 
