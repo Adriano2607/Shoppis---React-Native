@@ -2,7 +2,6 @@ import { ReactNode, createContext, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ICartItem, ProductDTO } from "../types/Products";
 import Toast from "react-native-root-toast";
-import { executeNativeBackPress } from "react-native-screens";
 
 type CartContextProps = {
   cart: ICartItem[];

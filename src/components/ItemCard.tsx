@@ -11,7 +11,7 @@ const ItemCard = ({ product }: Props) => {
   const navigation = useNavigation<any>();
   
   return (
-    <TouchableOpacity onPress={() => navigation.navigate("Details")}>
+    <TouchableOpacity onPress={() => navigation.navigate("Details",product)}>
       <View style={styles.card}>
         <View style={styles.imageContainer}>
           <Image
