@@ -27,8 +27,7 @@ Este é um aplicativo simples de carrinho de compras desenvolvido em React Nativ
 ## Uso
 
 1. **Inicie o aplicativo:**
-- npm start
-
+- npx expo
 
 2. O aplicativo será iniciado em seu emulador ou dispositivo móvel.
 
