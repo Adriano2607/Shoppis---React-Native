@@ -1,4 +1,4 @@
-<h1>Carrinho de Compras>/h1>
+<h1>Carrinho de Compras</h1>
 <p>Este é um aplicativo simples de carrinho de compras desenvolvido em React Native.</p>
 
 <ul>Funcionalidades</ul>
