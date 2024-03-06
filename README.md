@@ -15,6 +15,6 @@ Este é um aplicativo simples de carrinho de compras desenvolvido em React Nativ
 ## Instalação
 
 1. **Clone o repositório:**
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+- git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
 
