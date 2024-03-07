@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { ProductDTO } from "../types/Products";
 import { Button } from 'galio-framework';
 import { CartContext } from "../contexts/CartContext";
-import PagerView from 'react-native-pager-view';
+import PagerView from "react-native-pager-view";
 
 
 
@@ -17,7 +17,15 @@ const Details = ({ route }: any) => {
 
   const confirm = (product: ProductDTO) => {
     addProduct(product);
-    Alert.alert('OK')
+    Alert.alert(
+      '', 
+      'Adicionado', 
+      [],
+      {
+        cancelable:true
+      }
+    );
+    
   };
 
 
@@ -69,7 +77,8 @@ const styles = StyleSheet.create({
   
   }, img: {
     width: '100%',
-    height: 250,
+    height: 300,
+    resizeMode:'cover',
   }, text: {
     flex: 1,
     justifyContent: 'space-between',

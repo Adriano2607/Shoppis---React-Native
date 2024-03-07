@@ -40,8 +40,7 @@ export const HomeRoutes = () => {
         name="Payment"
         component={Payment}
         options={{
-          headerTitle: "Pagamento",
-          headerRight: () => <MenuHeader />,
+          headerTitle: "Pagamento"
         }}
       />
     </Stack.Navigator>

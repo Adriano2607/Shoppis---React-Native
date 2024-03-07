@@ -19,6 +19,7 @@ const CartCard = () => {
 
     return total + subtotal;
   }, 0);
+  
 
 
 if (cart.length === 0) {
@@ -37,7 +38,7 @@ if (cart.length === 0) {
         renderItem={({ item }) => (
           <View style={styles.container}>
             <View style={styles.card}>
-              <Text>{item.product.title}</Text>
+              <Text style={{fontSize:25}}>{item.product.title}</Text>
               <Text>$ {item.product.price}</Text>
               <Text style={{textTransform:'capitalize'}}>{item.product.category}</Text>
               <Text>QTD: {item.quantity}</Text>
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: "white",
-    width: 150,
+    width: 350,
     height: 150,
     borderRadius: 10,
     marginVertical: 10,
