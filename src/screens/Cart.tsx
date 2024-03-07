@@ -2,9 +2,11 @@ import { Alert, FlatList, StyleSheet, Text, View } from "react-native";
 import React, { useContext, useEffect } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { Button } from "galio-framework";
+import { useNavigation } from "@react-navigation/native";
 
 const CartCard = () => {
   const { getCart,cart,removeProduct } = useContext(CartContext);
+  const navigation = useNavigation<any>();
 
   useEffect(() => {
     getCart();
@@ -47,7 +49,7 @@ if (cart.length === 0) {
         keyExtractor={(item) => item.product.id.toString()}
       />
       <Text style={{ fontWeight: "900" ,fontSize:25}}>Total: $ {totalPrice} </Text>
-      <Button uppercase icon="payment" iconFamily="MaterialIcons" iconSize={15}  color="black" onPress={() => Alert.alert('Calma em desenvolvimento')} >Payment</Button>
+      <Button uppercase icon="payment" iconFamily="MaterialIcons" iconSize={15}  color="black" onPress={() => navigation.navigate('Payment')} >Payment</Button>
     </View>
   );
 };
