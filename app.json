@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "Shoppis",
+    "name": "Adriano",
     "slug": "Shoppis",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/letra-a.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logo.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
