@@ -15,8 +15,10 @@ export const Routes = () => {
 
 
   return (
- 
+    
+
     <NavigationContainer>
+    
       {token ? <AppRoutes /> : <AuthRoutes />}
     </NavigationContainer>
  

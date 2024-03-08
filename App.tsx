@@ -10,8 +10,9 @@ export default function App() {
     <RootSiblingParent>
       <UserContextProvider>
         <CartContextProvider>
+        <StatusBar backgroundColor="white" style="dark"/>
           <Routes />
-          <StatusBar style="inverted" />
+         
         </CartContextProvider>
       </UserContextProvider>
     </RootSiblingParent>

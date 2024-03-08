@@ -38,15 +38,16 @@ const CartCard = () => {
             <View style={styles.card}>
               <Image
                 source={{ uri: item.product.thumbnail }}
-                style={{ height: '100%', width: 100 }}
+                style={{ height: '100%', width: 100, borderTopLeftRadius: 10,
+                borderBottomLeftRadius: 10, }}
               />
               <View style={styles.text}>
                 <Text>★{item.product.brand}</Text>
               <Text style={{ fontSize: 25 }}>{item.product.title}</Text>
               <Text style={{ textTransform: "capitalize" }}>{item.product.category}</Text>
-     
-              <Text>QTD: {item.quantity}</Text>
-              <Text style={{fontSize:20}}>$ {item.product.price}</Text>
+              <Text>Stock: {item.product.stock}</Text>
+              <Text style={{fontStyle:'italic'}}>QTD: {item.quantity}</Text>
+              <Text style={{fontSize:20}}>${item.product.price}</Text>
               </View>
               <Button style={styles.btn} onlyIcon icon="closecircleo" iconFamily="AntDesign" color="transparent" iconColor="red"  iconSize={20} onPress={() => removeProduct(item.product.id)}>warning</Button>
 
@@ -55,9 +56,7 @@ const CartCard = () => {
         )}
         keyExtractor={(item) => item.product.id.toString()}
       />
-      <Text style={{ fontWeight: "900", fontSize: 25 }}>
-        Total: $ {totalPrice}{" "}
-      </Text>
+      <Text style={{ fontWeight: "900", fontSize: 25 }}>Total: $ {totalPrice} </Text>
       <Button
         uppercase
         icon="payment"
@@ -66,7 +65,7 @@ const CartCard = () => {
         color="info"
         onPress={() => navigation.navigate("Payment")}
       >
-        Payment
+        Checkout
       </Button>
     </View>
   );

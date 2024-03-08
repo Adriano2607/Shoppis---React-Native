@@ -7,21 +7,28 @@ import { Input, Block } from "galio-framework";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { UserContext } from "../contexts/UserContext";
+import { useNavigation } from "@react-navigation/native";
 
 const Payment = () => {
   const [numeroCartao, setNumeroCartao] = useState("");
   const [vencCartao, setVencCartao] = useState("");
   const [nome, setNome] = useState("");
+const nav = useNavigation<any>()
   
 
-  const valida =  () => {
-    if (numeroCartao && vencCartao && nome) {
-      Alert.alert("Finalizado");
-      
-    } else {
-      Alert.alert("Preencha os dados");
-    }
-  };
+const valida = async () => {
+  if (numeroCartao && vencCartao && nome) {
+    Alert.alert("Obrigado pela Compra !!!", "", [
+      { text: "Menu", onPress: async () => {
+        await AsyncStorage.removeItem("@cart");
+        nav.navigate("Menu");
+      }}
+    ]);
+  } else {
+    Alert.alert("Preencha os dados");
+  }
+};
+
 
   return (
     <SafeAreaView style={{ flex: 1 }}>

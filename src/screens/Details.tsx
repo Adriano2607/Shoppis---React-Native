@@ -4,6 +4,7 @@ import { ProductDTO } from "../types/Products";
 import { Button } from 'galio-framework';
 import { CartContext } from "../contexts/CartContext";
 import PagerView from "react-native-pager-view";
+import Toast from "react-native-root-toast";
 
 
 
@@ -17,14 +18,16 @@ const Details = ({ route }: any) => {
 
   const confirm = (product: ProductDTO) => {
     addProduct(product);
-    Alert.alert(
-      '', 
-      'Adicionado', 
-      [],
-      {
-        cancelable:true
-      }
-    );
+    Toast.show("Adicionado com Sucesso !!!", {
+      duration: 1500,
+      position: Toast.positions.CENTER ,
+      shadow: false,
+      animation: true,
+      hideOnPress: true,
+      delay: 0,
+      backgroundColor: "yellow",
+      textColor:'black',
+    });
     
   };
 
@@ -69,7 +72,7 @@ const styles = StyleSheet.create({
   }, card: {
     backgroundColor: 'white',
     width: 350,
-    height: 580,
+    height: 650,
     borderRadius: 10,
     marginVertical: 10,
     borderWidth: 1,
@@ -79,6 +82,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 300,
     resizeMode:'cover',
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+
   }, text: {
     flex: 1,
     justifyContent: 'space-between',
