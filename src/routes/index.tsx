@@ -3,6 +3,7 @@ import { AuthRoutes } from "./AuthRoutes";
 import { AppRoutes } from "./AppRoutes";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
+import { StatusBar } from "react-native";
 
 export const Routes = () => {
  const { getToken, token } = useContext(UserContext);
@@ -14,8 +15,11 @@ export const Routes = () => {
 
 
   return (
+ 
     <NavigationContainer>
       {token ? <AppRoutes /> : <AuthRoutes />}
     </NavigationContainer>
+ 
+  
   );
 };

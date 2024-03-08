@@ -1,11 +1,11 @@
-import { Alert, FlatList, StyleSheet, Text, View } from "react-native";
+import { Alert, FlatList, StyleSheet, Text, View, Image } from "react-native";
 import React, { useContext, useEffect } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { Button } from "galio-framework";
 import { useNavigation } from "@react-navigation/native";
 
 const CartCard = () => {
-  const { getCart,cart,removeProduct } = useContext(CartContext);
+  const { getCart, cart, removeProduct } = useContext(CartContext);
   const navigation = useNavigation<any>();
 
   useEffect(() => {
@@ -19,38 +19,55 @@ const CartCard = () => {
 
     return total + subtotal;
   }, 0);
-  
 
-
-if (cart.length === 0) {
-  return (
-    <View style={styles.container}>
-      <Text>O carrinho está vazio.</Text>
-    </View>
-  );
-}
-
+  if (cart.length === 0) {
+    return (
+      <View style={styles.container}>
+        <Text>O carrinho está vazio.</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
       <FlatList
         data={cart}
+        showsVerticalScrollIndicator={false} 
         renderItem={({ item }) => (
           <View style={styles.container}>
             <View style={styles.card}>
-              <Text style={{fontSize:25}}>{item.product.title}</Text>
-              <Text>$ {item.product.price}</Text>
-              <Text style={{textTransform:'capitalize'}}>{item.product.category}</Text>
+              <Image
+                source={{ uri: item.product.thumbnail }}
+                style={{ height: '100%', width: 100 }}
+              />
+              <View style={styles.text}>
+                <Text>★{item.product.brand}</Text>
+              <Text style={{ fontSize: 25 }}>{item.product.title}</Text>
+              <Text style={{ textTransform: "capitalize" }}>{item.product.category}</Text>
+     
               <Text>QTD: {item.quantity}</Text>
-              <Button onlyIcon icon="remove-circle" iconFamily="Ionicons" iconSize={25}  iconColor="#fff" style={{ width: 40, height: 40 }} onPress={() => removeProduct(item.product.id)}>warning</Button>
+              <Text style={{fontSize:20}}>$ {item.product.price}</Text>
+              </View>
+              <Button style={styles.btn} onlyIcon icon="closecircleo" iconFamily="AntDesign" color="transparent" iconColor="red"  iconSize={20} onPress={() => removeProduct(item.product.id)}>warning</Button>
 
             </View>
           </View>
         )}
         keyExtractor={(item) => item.product.id.toString()}
       />
-      <Text style={{ fontWeight: "900" ,fontSize:25}}>Total: $ {totalPrice} </Text>
-      <Button uppercase icon="payment" iconFamily="MaterialIcons" iconSize={15}  color="black" onPress={() => navigation.navigate('Payment')} >Payment</Button>
+      <Text style={{ fontWeight: "900", fontSize: 25 }}>
+        Total: $ {totalPrice}{" "}
+      </Text>
+      <Button
+        uppercase
+        icon="payment"
+        iconFamily="MaterialIcons"
+        iconSize={15}
+        color="info"
+        onPress={() => navigation.navigate("Payment")}
+      >
+        Payment
+      </Button>
     </View>
   );
 };
@@ -71,7 +88,16 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     borderWidth: 1,
     borderColor: "silver",
-    alignItems: "center",
-    justifyContent: "space-around",
-  },
+    flexDirection:'row',
+    position:'relative',
+
+  },text:{
+    marginLeft:25
+  },btn:{
+    position:'absolute',
+    right:0,
+    top:0,
+    width:20,
+    height:22,
+  }
 });

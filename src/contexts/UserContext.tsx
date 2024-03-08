@@ -13,6 +13,7 @@ type UserContextProps = {
   getUser: () => void;
   login: (username: string, password: string) => void;
   logout: () => void;
+
 };
 
 type UserProviderProps = {
@@ -133,6 +134,8 @@ export const UserContextProvider = ({ children }: UserProviderProps) => {
     await AsyncStorage.removeItem("@cart");
   };
 
+ 
+
   return (
     <UserContext.Provider
       value={{
@@ -143,7 +146,8 @@ export const UserContextProvider = ({ children }: UserProviderProps) => {
         setUser,
         getUser,
         login,
-        logout,
+        logout, 
+        
       }}
     >
       {children}

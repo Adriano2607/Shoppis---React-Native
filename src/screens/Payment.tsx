@@ -1,9 +1,12 @@
 import { Alert, StyleSheet, Text, TextInput, View } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Card from "../components/Card";
 import { Button } from "galio-framework";
+import { Input, Block } from "galio-framework";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import { UserContext } from "../contexts/UserContext";
 
 const Payment = () => {
   const [numeroCartao, setNumeroCartao] = useState("");
@@ -11,37 +14,71 @@ const Payment = () => {
   const [nome, setNome] = useState("");
   
 
+  const valida =  () => {
+    if (numeroCartao && vencCartao && nome) {
+      Alert.alert("Finalizado");
+      
+    } else {
+      Alert.alert("Preencha os dados");
+    }
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
-        <TextInput
-          style={styles.input}
+        <Input
+          type="numeric"
+          placeholder="NUMBER CARD"
+          right
+          icon="credit-card"
+          family="FontAwesome"
+          iconSize={25}
+          iconColor="black"
           onChangeText={setNumeroCartao}
           value={numeroCartao}
-          placeholder="NUMBER CARD"
-          keyboardType="numeric"
         />
 
-        <TextInput
-          style={styles.input}
+        <Input
+          type="name-phone-pad"
+          placeholder="CARDHOLDER NAME"
+          right
+          icon="credit-card"
+          family="FontAwesome"
+          iconSize={25}
+          iconColor="black"
           onChangeText={setNome}
           value={nome}
-          placeholder="CARDHOLDER NAME"
         />
 
-        <TextInput
-          style={styles.input}
+        <Input
+          type="numeric"
+          placeholder="MONTH/YEAR"
+          right
+          icon="credit-card"
+          family="FontAwesome"
+          iconSize={25}
+          iconColor="black"
           onChangeText={setVencCartao}
           value={vencCartao}
-          placeholder="MONTH/YEAR"
-          keyboardType="numeric"
-
         />
 
-    
-        <Card nome={nome} vencimento={vencCartao} numcart={numeroCartao}/>
-        <Button onlyIcon icon="checkcircle" iconFamily="AntDesign" iconSize={35}  color="transparent" iconColor="black" style={{ width: 40, height: 40 }} onPress={() => Alert.alert('Finalizado')}> </Button>
+       
 
+
+
+        <Card nome={nome} vencimento={vencCartao} numcart={numeroCartao} />
+        <Button
+          onlyIcon
+          icon="checkcircle"
+          iconFamily="AntDesign"
+          iconSize={35}
+          color="transparent"
+          iconColor="black"
+          style={{ width: 40, height: 40 }}
+          onPress={() => valida()}
+        >
+          {" "}
+        </Button>
       </View>
     </SafeAreaView>
   );
@@ -49,18 +86,10 @@ const Payment = () => {
 
 const styles = StyleSheet.create({
   container: {
+    marginHorizontal: 20,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "gray",
-    borderRadius: 5,
-    width: 300,
-    height: 40,
-    marginBottom: 20,
-    paddingHorizontal: 10,
   },
 });
 
