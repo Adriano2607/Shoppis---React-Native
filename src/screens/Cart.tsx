@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { Button } from "galio-framework";
 import { useNavigation } from "@react-navigation/native";
+import { colors } from "../colors/color";
 
 const CartCard = () => {
   const { getCart, cart, removeProduct } = useContext(CartContext);
@@ -23,7 +24,7 @@ const CartCard = () => {
   if (cart.length === 0) {
     return (
       <View style={styles.container}>
-        <Text>O carrinho está vazio.</Text>
+        <Text style={{color:'white'}}>O carrinho está vazio.</Text>
       </View>
     );
   }
@@ -49,23 +50,27 @@ const CartCard = () => {
               <Text style={{fontStyle:'italic'}}>QTD: {item.quantity}</Text>
               <Text style={{fontSize:20}}>${item.product.price}</Text>
               </View>
-              <Button style={styles.btn} onlyIcon icon="closecircleo" iconFamily="AntDesign" color="transparent" iconColor="red"  iconSize={20} onPress={() => removeProduct(item.product.id)}>warning</Button>
+              <Button style={styles.btn} onlyIcon icon="closecircleo" iconFamily="AntDesign" color="transparent" iconColor="red"  iconSize={27} onPress={() => removeProduct(item.product.id)}>warning</Button>
 
             </View>
           </View>
         )}
         keyExtractor={(item) => item.product.id.toString()}
       />
-      <Text style={{ fontWeight: "900", fontSize: 25 }}>Total: $ {totalPrice} </Text>
+      <Text style={{ fontWeight: "900", fontSize: 20,color:'white' }}>Total: $ {totalPrice} </Text>
       <Button
         uppercase
         icon="payment"
         iconFamily="MaterialIcons"
         iconSize={15}
-        color="info"
+        iconColor='#2C3136'
+        color="white"
         onPress={() => navigation.navigate("Payment")}
+        textStyle={{ color: '#2C3136' }} 
       >
-        Checkout
+       
+       Checkout
+        
       </Button>
     </View>
   );
@@ -78,6 +83,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor:colors.corPrincipal
   },
   card: {
     backgroundColor: "white",
@@ -85,8 +91,6 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 10,
     marginVertical: 10,
-    borderWidth: 1,
-    borderColor: "silver",
     flexDirection:'row',
     position:'relative',
 
@@ -94,9 +98,8 @@ const styles = StyleSheet.create({
     marginLeft:25
   },btn:{
     position:'absolute',
-    right:0,
-    top:0,
-    width:20,
-    height:22,
+      right:-20,
+    top:-20,
+    
   }
 });

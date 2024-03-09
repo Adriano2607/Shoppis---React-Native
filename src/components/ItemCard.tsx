@@ -38,8 +38,17 @@ const styles = StyleSheet.create({
     height:280,
     borderRadius:10,
     marginVertical:10,
-    borderWidth:1,
-    borderColor:'silver'
+    
+    shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 2,
+},
+shadowOpacity: 0.25,
+shadowRadius: 3.84,
+
+elevation: 5,
+
   },
   imageContainer: {
     borderTopLeftRadius: 10,

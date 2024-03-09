@@ -8,6 +8,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { UserContext } from "../contexts/UserContext";
 import { useNavigation } from "@react-navigation/native";
+import { colors } from "../colors/color";
 
 const Payment = () => {
   const [numeroCartao, setNumeroCartao] = useState("");
@@ -31,7 +32,7 @@ const valida = async () => {
 
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1,backgroundColor:colors.corPrincipal }}>
       <View style={styles.container}>
         <Input
           type="numeric"
@@ -80,7 +81,7 @@ const valida = async () => {
           iconFamily="AntDesign"
           iconSize={35}
           color="transparent"
-          iconColor="black"
+          iconColor="white"
           style={{ width: 40, height: 40 }}
           onPress={() => valida()}
         >

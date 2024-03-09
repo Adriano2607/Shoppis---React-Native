@@ -6,6 +6,7 @@ import Toast from "react-native-root-toast";
 import { CartContext } from "../contexts/CartContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ItemCard from "../components/ItemCard";
+import { colors } from "../colors/color";
 
 const Menu = () => {
   const { getCart } = useContext(CartContext);
@@ -53,5 +54,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor:colors.corPrincipal,
   },
 });

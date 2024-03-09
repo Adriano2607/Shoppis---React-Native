@@ -5,6 +5,7 @@ import { Button } from 'galio-framework';
 import { CartContext } from "../contexts/CartContext";
 import PagerView from "react-native-pager-view";
 import Toast from "react-native-root-toast";
+import { colors } from "../colors/color";
 
 
 
@@ -43,14 +44,14 @@ const Details = ({ route }: any) => {
       ))}
     </PagerView>
         <View style={styles.text}>
-          <View style={{ alignItems: 'center', marginTop: 25 }}>
+          <View style={{ alignItems: 'center'}}>
             <Text style={{ fontSize: 25, fontWeight: "500", textTransform: 'capitalize' }}>{product.title}</Text>
             <Text>{product.description}</Text>
           </View>
 
           <View style={{ alignItems: 'center' }}>
             <Text style={{ fontSize: 30 }}>$ {product.price} </Text>
-            <Button capitalize icon="shoppingcart" iconFamily="antdesign" iconSize={16} color="info" onPress={() => confirm(product)}>Carrinho</Button>
+            <Button capitalize icon="shoppingcart" iconFamily="antdesign" iconSize={16} color="#2C3136" onPress={() => confirm(product)}>Carrinho</Button>
 
 
           </View>
@@ -68,16 +69,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor:colors.corPrincipal
   }, card: {
     backgroundColor: 'white',
     width: 350,
     height: 650,
     borderRadius: 10,
-    marginVertical: 10,
-    borderWidth: 1,
-    borderColor: 'silver',
-  
   }, img: {
     width: '100%',
     height: 300,
@@ -88,7 +86,8 @@ const styles = StyleSheet.create({
   }, text: {
     flex: 1,
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingHorizontal:15
   }, viewPager: {
     flex: 1,
   },

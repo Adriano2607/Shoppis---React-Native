@@ -7,7 +7,7 @@ const MenuHeader = () => {
   const navigation = useNavigation<any>();
   return (
     <TouchableOpacity onPress={() => navigation.navigate("Cart")}>
-      <FontAwesome5  name="shopping-cart" size={25} color="black" />
+      <FontAwesome5  name="shopping-cart" size={25} color="white" />
     </TouchableOpacity>
   );
 };

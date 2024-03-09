@@ -10,7 +10,7 @@ export default function App() {
     <RootSiblingParent>
       <UserContextProvider>
         <CartContextProvider>
-        <StatusBar backgroundColor="white" style="dark"/>
+        <StatusBar backgroundColor="black" style="light"/>
           <Routes />
          
         </CartContextProvider>

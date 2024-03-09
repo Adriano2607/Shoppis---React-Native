@@ -46,7 +46,7 @@ const Card: FC<Props> = ({ nome, vencimento, numcart }) => {
     return formattedDate;
   };
 
-  const maskedCardNumber = maskCreditCardNumber(numcart);
+
 
   return (
     <SafeAreaView style={styles.container}>

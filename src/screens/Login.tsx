@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { UserContext } from "../contexts/UserContext";
 import { Input, Block } from "galio-framework";
 import { Button } from "galio-framework";
+import { colors } from "../colors/color";
 
 const Login = () => {
   const { login } = useContext(UserContext);
@@ -15,6 +16,8 @@ const Login = () => {
       <Text style={styles.title}>LOGIN</Text>
 
       <Input
+              style={styles.inputContainer}
+
         placeholder="Username"
         right
         icon="user"
@@ -23,9 +26,11 @@ const Login = () => {
         iconColor="blue"
         onChangeText={setUsername}
         value={username}
+        
       />
 
       <Input
+        style={styles.inputContainer}
         placeholder="Password"
         password
         viewPass
@@ -49,33 +54,21 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginHorizontal: 10,
-  },
-  input: {
-    width: "100%",
-    height: 50,
-    marginVertical: 12,
-    borderWidth: 1,
-    padding: 10,
-  },
-  button: {
-    width: "100%",
-    height: 50,
-    backgroundColor: "#606060",
-    justifyContent: "center",
-    alignItems: "center",
-    marginVertical: 12,
+  
+    backgroundColor:colors.corPrincipal
   },
   btn: {
-    width: "100%",
+    width: "80%",
   },
   buttonText: {
     color: "#fff",
   },
   title: {
-    color: "#252525",
+    color: "white",
     fontSize: 26,
     fontWeight: "bold",
+  }, inputContainer: {
+    width: '80%', 
   },
 });
 
