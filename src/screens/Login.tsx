@@ -5,6 +5,7 @@ import { UserContext } from "../contexts/UserContext";
 import { Input, Block } from "galio-framework";
 import { Button } from "galio-framework";
 import { colors } from "../colors/color";
+import { Container } from "../stylesCompents/styled";
 
 const Login = () => {
   const { login } = useContext(UserContext);
@@ -12,7 +13,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <SafeAreaView style={styles.container}>
+   <Container>
     <Image style={{height:200,resizeMode:'contain'}}
     source={require('../../assets/icon/icon.jpg') } />
       <Input
@@ -45,18 +46,12 @@ const Login = () => {
         onPress={() => login("yraigatt3", "sRQxjPfdS")}
         style={styles.btn}
       > LOGIN </Button>
-    </SafeAreaView>
+    </Container>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  
-    backgroundColor:'black'
-  },
+
   btn: {
     width: "80%",
   },

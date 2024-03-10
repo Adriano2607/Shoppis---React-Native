@@ -4,6 +4,7 @@ import { CartContext } from "../contexts/CartContext";
 import { Button } from "galio-framework";
 import { useNavigation } from "@react-navigation/native";
 import { colors } from "../colors/color";
+import { Container } from "../stylesCompents/styled";
 
 const CartCard = () => {
   const { getCart, cart, removeProduct } = useContext(CartContext);
@@ -23,19 +24,21 @@ const CartCard = () => {
 
   if (cart.length === 0) {
     return (
-      <View style={styles.container}>
-        <Text style={{color:'white'}}>O carrinho está vazio.</Text>
-      </View>
+      <Container>
+<Text style={{color:'white'}}>O carrinho está vazio.</Text>
+      </Container>
+        
+     
     );
   }
 
   return (
-    <View style={styles.container}>
+    <Container>
       <FlatList
         data={cart}
         showsVerticalScrollIndicator={false} 
         renderItem={({ item }) => (
-          <View style={styles.container}>
+        
             <View style={styles.card}>
               <Image
                 source={{ uri: item.product.thumbnail }}
@@ -53,7 +56,7 @@ const CartCard = () => {
               <Button style={styles.btn} onlyIcon icon="closecircleo" iconFamily="AntDesign" color="transparent" iconColor="red"  iconSize={27} onPress={() => removeProduct(item.product.id)}>warning</Button>
 
             </View>
-          </View>
+          
         )}
         keyExtractor={(item) => item.product.id.toString()}
       />
@@ -72,19 +75,14 @@ const CartCard = () => {
        Checkout
         
       </Button>
-    </View>
+    </Container>
   );
 };
 
 export default CartCard;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor:colors.corPrincipal
-  },
+ 
   card: {
     backgroundColor: "white",
     width: 350,

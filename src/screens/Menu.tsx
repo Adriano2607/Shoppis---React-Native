@@ -7,6 +7,7 @@ import { CartContext } from "../contexts/CartContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ItemCard from "../components/ItemCard";
 import { colors } from "../colors/color";
+import { Container } from "../stylesCompents/styled";
 
 const Menu = () => {
   const { getCart } = useContext(CartContext);
@@ -36,24 +37,15 @@ const Menu = () => {
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
+   <Container>
       <FlatList
         data={products}
         renderItem={({ item }) => <ItemCard product={item} />}
         keyExtractor={(item) => item.id.toString()}
         showsVerticalScrollIndicator={false} 
       />
-    </SafeAreaView>
+    </Container>
   );
 };
 
 export default Menu;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor:colors.corPrincipal,
-  },
-});

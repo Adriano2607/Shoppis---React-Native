@@ -6,6 +6,7 @@ import { CartContext } from "../contexts/CartContext";
 import PagerView from "react-native-pager-view";
 import Toast from "react-native-root-toast";
 import { colors } from "../colors/color";
+import { Container } from "../stylesCompents/styled";
 
 
 
@@ -34,7 +35,7 @@ const Details = ({ route }: any) => {
 
 
   return (
-    <View style={styles.container}>
+    <Container >
       <View style={styles.card}>
       <PagerView style={styles.viewPager} initialPage={0}>
       {product.images.map((image, index) => (
@@ -59,19 +60,14 @@ const Details = ({ route }: any) => {
 
         </View>
       </View>
-    </View>
+    </Container>
   );
 };
 
 export default Details;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor:colors.corPrincipal
-  }, card: {
+  card: {
     backgroundColor: 'white',
     width: 350,
     height: 650,

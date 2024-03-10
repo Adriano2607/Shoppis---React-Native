@@ -4,12 +4,12 @@
     "slug": "Shoppis",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon/icon.jpg",
+    "icon": "./assets/letra-a.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.jpg",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "black"
+      "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [
       "**/*"

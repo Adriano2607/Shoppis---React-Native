@@ -10,6 +10,7 @@ import {
 import { UserContext } from "../contexts/UserContext";
 import { Button } from "galio-framework";
 import { colors } from "../colors/color";
+import { Container } from "../stylesCompents/styled";
 
 const User = () => {
   const { getUser, user, logout } = useContext(UserContext);
@@ -19,7 +20,7 @@ const User = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
+   <Container>
       <View style={styles.card}>
         <View style={styles.containerimg}>
         <Image style={styles.img} source={{ uri: user ? user.image : "N/A" }} />
@@ -32,7 +33,7 @@ const User = () => {
              <Text style={{color:'black',fontSize:20}}>Logout</Text> 
         </Button> 
       </View>
-    </View>
+    </Container>
   );
 };
 
@@ -42,12 +43,6 @@ const styles = StyleSheet.create({
   img: {
     width: 150,
     height: 150,
-  },
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor:colors.corPrincipal
   },
   card: {
     alignItems:'center'
