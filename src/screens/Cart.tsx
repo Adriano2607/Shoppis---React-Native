@@ -93,6 +93,8 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     flexDirection:'row',
     position:'relative',
+    borderWidth:.8,
+    borderColor:colors.borderColor
 
   },text:{
     marginLeft:25

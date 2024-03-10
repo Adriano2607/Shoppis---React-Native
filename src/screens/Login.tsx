@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, TextInput, Text, TouchableOpacity, Image } from "react-native";
 import React, { useContext, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { UserContext } from "../contexts/UserContext";
@@ -13,8 +13,8 @@ const Login = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>LOGIN</Text>
-
+    <Image style={{height:200,resizeMode:'contain'}}
+    source={require('../../assets/icon/icon.jpg') } />
       <Input
               style={styles.inputContainer}
 
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   
-    backgroundColor:colors.corPrincipal
+    backgroundColor:'black'
   },
   btn: {
     width: "80%",

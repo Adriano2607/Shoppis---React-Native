@@ -2,6 +2,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { ProductDTO } from "../types/Products";
+import { colors } from "../colors/color";
 
 interface Props {
   product: ProductDTO;
@@ -38,17 +39,8 @@ const styles = StyleSheet.create({
     height:280,
     borderRadius:10,
     marginVertical:10,
-    
-    shadowColor: "#000",
-shadowOffset: {
-	width: 0,
-	height: 2,
-},
-shadowOpacity: 0.25,
-shadowRadius: 3.84,
-
-elevation: 5,
-
+    borderWidth:.8,
+    borderColor:colors.borderColor
   },
   imageContainer: {
     borderTopLeftRadius: 10,
