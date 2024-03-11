@@ -1,6 +1,7 @@
 import { View, StyleSheet, Text, SafeAreaView } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FC } from "react";
+import { colors } from "../colors/color";
 
 interface Props {
   nome: string;
@@ -52,8 +53,8 @@ const Card: FC<Props> = ({ nome, vencimento, numcart }) => {
     <SafeAreaView style={styles.container}>
       <View style={styles.card}>
         <View style={styles.header}>
-          <Text style={{ color: 'white' }}>Credit Card</Text>
-          <Text style={{ color: 'white' }}>Bank Adriano</Text>
+          <Text style={{ color: '#303030' }}>Credit Card</Text>
+          <Text style={{ color: '#303030' }}>Bank Adriano</Text>
         </View>
         <View style={styles.icon}>
           <MaterialCommunityIcons
@@ -65,12 +66,12 @@ const Card: FC<Props> = ({ nome, vencimento, numcart }) => {
 
         <View style={styles.num}>
          
-          <Text style={{ fontSize: 25, color: 'white' }}>{numcart ? maskCreditCardNumber(numcart) : '#### #### #### ####'}</Text>
+          <Text style={{ fontSize: 25, color: '#303030' }}>{numcart ? maskCreditCardNumber(numcart) : '#### #### #### ####'}</Text>
         </View>
 
         <View style={styles.info}>
-          <Text style={{ color: 'white' }}>{nome}</Text>
-          <Text style={{color:'white'}}>{maskExpirationDate(vencimento)}</Text>
+          <Text style={{ color: '#303030' }}>{nome}</Text>
+          <Text style={{color:'#303030'}}>{maskExpirationDate(vencimento)}</Text>
         </View>
       </View>
     </SafeAreaView>
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
   },
   card: {
     minWidth: 320,
-    backgroundColor: "#2C3136",
+    backgroundColor: '#00C9C8',
     borderRadius: 25,
     padding: 30
   },

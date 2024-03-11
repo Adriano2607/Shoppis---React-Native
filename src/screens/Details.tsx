@@ -1,65 +1,88 @@
-import { StyleSheet, Text, View, Image, VirtualizedList, Alert } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  VirtualizedList,
+  Alert,
+} from "react-native";
 import React, { useContext } from "react";
 import { ProductDTO } from "../types/Products";
-import { Button } from 'galio-framework';
+import { Button } from "galio-framework";
 import { CartContext } from "../contexts/CartContext";
 import PagerView from "react-native-pager-view";
 import Toast from "react-native-root-toast";
+import { CardDesign, Container } from "../stylesCompents/styled";
 import { colors } from "../colors/color";
-import { Container } from "../stylesCompents/styled";
-
-
-
-
 
 const Details = ({ route }: any) => {
-  const product: ProductDTO = route.params
+  const product: ProductDTO = route.params;
 
-
-  const { addProduct } = useContext(CartContext)
+  const { addProduct } = useContext(CartContext);
 
   const confirm = (product: ProductDTO) => {
     addProduct(product);
     Toast.show("Adicionado com Sucesso !!!", {
       duration: 1500,
-      position: Toast.positions.CENTER ,
+      position: Toast.positions.CENTER,
       shadow: false,
       animation: true,
       hideOnPress: true,
       delay: 0,
-      backgroundColor: "yellow",
-      textColor:'black',
+      backgroundColor: "#00C9C8",
+      textColor: "black",
     });
-    
   };
 
-
   return (
-    <Container >
-      <View style={styles.card}>
-      <PagerView style={styles.viewPager} initialPage={0}>
-      {product.images.map((image, index) => (
-        <View key={index + 1}>
-          <Image source={{ uri: image }} style={styles.img} />
-        </View>
-      ))}
-    </PagerView>
+    <Container>
+      <CardDesign>
+        <PagerView style={styles.viewPager} initialPage={0}>
+          {product.images.map((image, index) => (
+            <View key={index + 1}>
+              <Image source={{ uri: image }} style={styles.img} />
+            </View>
+          ))}
+        </PagerView>
         <View style={styles.text}>
-          <View style={{ alignItems: 'center'}}>
-            <Text style={{ fontSize: 25, fontWeight: "500", textTransform: 'capitalize' }}>{product.title}</Text>
-            <Text>{product.description}</Text>
+          <View style={{ alignItems: "center" }}>
+            <Text
+              style={{
+                fontSize: 35,
+                fontWeight: "500",
+                textTransform: "capitalize",
+                color: "white",
+              }}
+            >
+              {product.title}
+            </Text>
+            <Text
+              style={{ fontStyle: "italic", marginTop: 10, color: "white" }}
+            >
+              {product.description}
+            </Text>
           </View>
 
-          <View style={{ alignItems: 'center' }}>
-            <Text style={{ fontSize: 30 }}>$ {product.price} </Text>
-            <Button capitalize icon="shoppingcart" iconFamily="antdesign" iconSize={16} color="#2C3136" onPress={() => confirm(product)}>Carrinho</Button>
-
-
+          <View style={{ alignItems: "center", width: "90%" }}>
+            <Text style={{ fontSize: 30, color: "white" }}>
+              $ {product.price}{" "}
+            </Text>
+            <Button
+              textStyle={{ color: "black" }}
+              style={styles.btn}
+              capitalize
+              icon="shoppingcart"
+              iconFamily="antdesign"
+              iconSize={16}
+              iconColor="black"
+              color="#FFE3F1"
+              onPress={() => confirm(product)}
+            >
+              Carrinho
+            </Button>
           </View>
-
-
         </View>
-      </View>
+      </CardDesign>
     </Container>
   );
 };
@@ -67,30 +90,27 @@ const Details = ({ route }: any) => {
 export default Details;
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: 'white',
-    width: 350,
-    height: 650,
-    borderRadius: 10,
-    borderWidth:.8,
-    borderColor:colors.borderColor
-  }, img: {
-    width: '100%',
+  img: {
+    width: "100%",
     height: 300,
-    resizeMode:'cover',
+    resizeMode: "cover",
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-
-  }, text: {
+  },
+  text: {
     flex: 1,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal:15
-  }, viewPager: {
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 15,
+  },
+  viewPager: {
     flex: 1,
   },
   page: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  btn: {
+    width: "100%",
+  },
 });

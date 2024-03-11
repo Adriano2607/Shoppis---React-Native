@@ -13,18 +13,17 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   return (
-   <Container>
-    <Image style={{height:200,resizeMode:'contain'}}
-    source={require('../../assets/icon/icon.jpg') } />
+   <Container style={{backgroundColor:'black'}}>
+    <Image style={{height:150,resizeMode:'center'}}
+    source={require('../../assets/ad.png') } />
       <Input
-              style={styles.inputContainer}
-
+        style={styles.inputContainer}
         placeholder="Username"
         right
         icon="user"
         family="Feather"
         iconSize={15}
-        iconColor="blue"
+        iconColor={colors.corPreto}
         onChangeText={setUsername}
         value={username}
         
@@ -37,12 +36,13 @@ const Login = () => {
         viewPass
         value={password}
         onChangeText={setPassword}
-        iconColor="blue"
+        iconColor={colors.corPreto}
       />
 
       {/* mudar aqui */}
       <Button
-        color="info"
+      textStyle={{color:'black'}}
+        color={colors.corBtn}
         onPress={() => login("yraigatt3", "sRQxjPfdS")}
         style={styles.btn}
       > LOGIN </Button>
@@ -54,9 +54,6 @@ const styles = StyleSheet.create({
 
   btn: {
     width: "80%",
-  },
-  buttonText: {
-    color: "#fff",
   },
   title: {
     color: "white",

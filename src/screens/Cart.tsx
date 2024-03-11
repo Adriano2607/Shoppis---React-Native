@@ -14,13 +14,7 @@ const CartCard = () => {
     getCart();
   }, []);
 
-  const totalPrice = cart.reduce((total, item) => {
-    const price = item.product.price;
 
-    const subtotal = price * item.quantity;
-
-    return total + subtotal;
-  }, 0);
 
   if (cart.length === 0) {
     return (
@@ -60,16 +54,16 @@ const CartCard = () => {
         )}
         keyExtractor={(item) => item.product.id.toString()}
       />
-      <Text style={{ fontWeight: "900", fontSize: 20,color:'white' }}>Total: $ {totalPrice} </Text>
-      <Button
+ 
+      <Button style={styles.checkout}
         uppercase
         icon="payment"
         iconFamily="MaterialIcons"
         iconSize={15}
-        iconColor='#2C3136'
-        color="white"
+        iconColor='black'
+        color= {colors.corBtn}
         onPress={() => navigation.navigate("Payment")}
-        textStyle={{ color: '#2C3136' }} 
+        textStyle={{ color: 'black' }} 
       >
        
        Checkout
@@ -85,14 +79,13 @@ const styles = StyleSheet.create({
  
   card: {
     backgroundColor: "white",
-    width: 350,
+    width: 380,
     height: 150,
     borderRadius: 10,
     marginVertical: 10,
     flexDirection:'row',
     position:'relative',
-    borderWidth:.8,
-    borderColor:colors.borderColor
+  
 
   },text:{
     marginLeft:25
@@ -101,5 +94,7 @@ const styles = StyleSheet.create({
       right:-20,
     top:-20,
     
+  },checkout:{
+    width:'95%'
   }
 });

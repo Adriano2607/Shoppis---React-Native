@@ -29,7 +29,7 @@ const User = () => {
         <Text style={{fontStyle:'italic',color:'white'}}>{user ? user.username : "N/A"}</Text>
        
 
-         <Button style={{marginTop:15}} color="white" onPress={logout}>
+         <Button style={{marginTop:15}} color={colors.corBtn} onPress={logout}>
              <Text style={{color:'black',fontSize:20}}>Logout</Text> 
         </Button> 
       </View>

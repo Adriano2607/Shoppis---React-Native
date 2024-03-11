@@ -1,20 +1,20 @@
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, ActivityIndicator, View } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import { ProductDTO } from "../types/Products";
 import axios from "axios";
 import Toast from "react-native-root-toast";
 import { CartContext } from "../contexts/CartContext";
-import { SafeAreaView } from "react-native-safe-area-context";
 import ItemCard from "../components/ItemCard";
-import { colors } from "../colors/color";
 import { Container } from "../stylesCompents/styled";
 
 const Menu = () => {
   const { getCart } = useContext(CartContext);
   const [products, setProducts] = useState<ProductDTO[]>([]);
+  const[loading,setLoading] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
+      setLoading(true);
       try {
         await getCart();
         const url = "https://dummyjson.com/products";
@@ -31,21 +31,31 @@ const Menu = () => {
           delay: 0,
           backgroundColor: "red",
         });
+      }finally{
+        setLoading(false);
       }
     };
     getData();
   }, []);
 
-  return (
-   <Container>
-      <FlatList
-        data={products}
-        renderItem={({ item }) => <ItemCard product={item} />}
-        keyExtractor={(item) => item.id.toString()}
-        showsVerticalScrollIndicator={false} 
-      />
-    </Container>
-  );
-};
 
+  return (
+   
+       <Container>
+        {loading ? (
+          <ActivityIndicator size="large" color="white" />
+        ) : (
+         
+            <FlatList
+              data={products}
+              renderItem={({ item }) => <ItemCard product={item} />}
+              keyExtractor={(item) => item.id.toString()}
+              showsVerticalScrollIndicator={false} 
+            />
+          
+        )}
+     </Container>
+    
+    );
+ }
 export default Menu;
