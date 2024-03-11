@@ -6,6 +6,8 @@ import {
   TextInput,
   View,
   Image,
+  KeyboardAvoidingView,
+
 } from "react-native";
 import React, { useContext, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -51,6 +53,7 @@ const Payment = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.corPrincipal }}>
+    <KeyboardAvoidingView>
       <View style={styles.container}>
         <Input
           type="numeric"
@@ -127,6 +130,7 @@ const Payment = () => {
           </Button>
         </View>
       </Modal>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };
