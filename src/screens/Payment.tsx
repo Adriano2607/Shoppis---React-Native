@@ -52,8 +52,12 @@ const Payment = () => {
   }, 0);
 
   return (
+   
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.corPrincipal }}>
-    <KeyboardAvoidingView>
+        <KeyboardAvoidingView
+        style={{ flex: 1 }}
+      >
+   
       <View style={styles.container}>
         <Input
           type="numeric"
@@ -90,6 +94,7 @@ const Payment = () => {
           onChangeText={setVencCartao}
           value={vencCartao}
         />
+         
 
         <Card nome={nome} vencimento={vencCartao} numcart={numeroCartao} />
         <Button
@@ -129,9 +134,11 @@ const Payment = () => {
             Finalizar
           </Button>
         </View>
-      </Modal>
+      </Modal> 
+      
       </KeyboardAvoidingView>
     </SafeAreaView>
+   
   );
 };
 

@@ -43,7 +43,7 @@ const Login = () => {
       <Button
       textStyle={{color:'black'}}
         color={colors.corBtn}
-        onPress={() => login("yraigatt3", "sRQxjPfdS")}
+        onPress={() => login(username, password)}
         style={styles.btn}
       > LOGIN </Button>
     </Container>
